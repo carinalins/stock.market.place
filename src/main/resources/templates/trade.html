@@ -1,0 +1,93 @@
+
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Trade</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+	integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+	crossorigin="anonymous"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+	integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+	crossorigin="anonymous"></script>
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+	integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+	crossorigin="anonymous">
+
+$('#navbar').scrollspy();
+
+
+</script>
+
+</head>
+
+<body>
+
+	<h1>Trade Day</h1>
+
+	<a href="/trade" class="btn btn-info" role="button">New Trade</a>
+	<a href="/highestCapital" class="btn btn-info" role="button">Company Highest Capital </a>
+	<a href="/lowestCapital" class="btn btn-info" role="button">Company Lowest Capital </a>
+	<a href="/anyTrade" class="btn btn-info" role="button">Any Transaction Trade </a>
+		
+	
+
+
+	<div class="dropdown">
+
+		<button class="btn btn-default dropdown-toggle" type="button"
+			id="dropdownMenu" data-toggle="dropdown">
+			Investor <span class="caret"></span>
+		</button>
+
+
+		<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
+			<li><a tabindex="-1" href="/highestShares">Highest Shares</a></li>
+			<li><a tabindex="-1" href="/invetedMostCompanies">Investor
+					Inveted Most Companies</a></li>
+			<li><a tabindex="-1" href="/lowerShares">Lowest Shares</a></li>
+			<li><a tabindex="-1" href="/invetedLeastMostCompanies">Inveted
+					Least Most Companies</a></li>
+		</ul>
+
+
+		<button class="btn btn-default dropdown-toggle" type="button"
+			id="idCompany" data-toggle="dropdown">
+			Company <span class="caret"></span>
+		</button>
+
+
+		<ul class="dropdown-menu" role="menu" aria-labelledby="idCompany">
+		
+		</ul>
+
+	</div>
+	<table class="table">
+		<thead>
+			<tr>
+				<th scope="col">Name Companie</th>
+				<th scope="col">Name Investor</th>
+				<th scope="col">Date Transacion</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr block th:each="trade : ${listTrade}">
+				<td th:text="${trade.name}"></td>
+				<td th:text="${trade.investor}"></td>
+				<td th:text="${trade.transaction}"></td>
+
+			</tr>
+		</tbody>
+	</table>
+
+
+</body>
+</html>
